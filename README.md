@@ -4,3 +4,4 @@ Voici le travail sommatif de la création d'un quiz informatique sur une page we
 Qui veut devenir un millionaire?
 Alors consultez ce lien pour débuter le quiz !
 
+https://tasnim-rachad.github.io/TS-Quiz/
