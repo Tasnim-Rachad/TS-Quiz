@@ -1,0 +1,150 @@
+/*https://css-tricks.com/snippets/css/a-guide-to-flexbox/*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f5edf3;
+  font-family: system-ui, sans-serif;
+  color: #403344;
+}
+
+.titre {
+  margin-bottom: 25px;
+  color: #804d77;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.carrousel {
+  width: 600px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px #49344a22;
+}
+
+h1 {
+  text-align: center;
+  padding: 15px;
+}
+
+/******************************LE QUIZ *****************************/
+.diapos {
+  position: relative;
+  display: flex;
+  padding: 20px;
+}
+
+.diapo {
+  position: absolute;
+  width: calc(100% - 40px);
+  min-height: 360px; /* assez haut pour le classement */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  visibility: hidden;
+ transition: opacity 400ms ease;
+}
+
+/* la question 1 donne la hauteur du carrousel */
+#question1 {
+  position: relative;
+  width: 100%;
+}
+
+/* texte des diapos */
+.diapo h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.diapo p {
+  text-align: center;
+  color: #817486;
+}
+
+/* les choix un en dessous de l'autre sinon HTML les met horizontalement*/
+#choixRadio label,
+#choixCases label {
+  display: block;
+  margin: 4px 0;
+}
+
+/****************************** NAVIGATION*****************************/
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.navigation a {
+  background: #a66b9b;
+  color: white;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 30px;
+}
+
+.navigation a:hover {
+  background: #804d77;
+  transform: scale(1.05);
+}
+
+.compteur {
+  color: #947e96;
+}
+
+/* classement */
+#classement table {
+  border-collapse: collapse;
+}
+
+#classement th,
+#classement td {
+  padding: 3px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e1d4e0;
+}
+
+/******************************** POINTS EN BAS ******************************/
+.points {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px 25px;
+}
+
+.points a {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e1d4e0;
+  transition: background 0.2s;
+}
+
+.points a:hover {
+  background: #a66b9b;
+}
+
+/* au début, on montre la question 1. visibility au lieu de display
+   pour garder display: flex sur les diapos*/
+:root:not(:has(.diapo:target)) #question1 {
+  visibility: visible;
+}
+
+/* on montre la diapo choisie dans la destination du lien*/
+.diapos .diapo:target {
+  visibility: visible;
+}
