@@ -72,8 +72,12 @@ h1 {
 }
 
 /* les choix un en dessous de l'autre sinon HTML les met horizontalement*/
-#choixRadio label,
-#choixCases label {
+[id^="choixRadio"] {
+  display: flex;
+  flex-direction: column;
+}
+
+[id^="choixCases"] label {
   display: block;
   margin: 4px 0;
 }
